@@ -1,11 +1,5 @@
-{
-  font-family: 'Anton';
-  color: rgb(8, 36, 8);
-}
-
 body {
-  background-color: #B99470;
-  padding-top: 70px;
+  padding-top: 50px;
 }
 
 .App {
@@ -14,29 +8,29 @@ body {
 }
 
 .NameContainer {
-  background-color: #A5B68D;
+  background-color: rgb(150, 255, 150);
   width: 410px;
-  margin: auto;
-  padding: 10px; 
+  margin: auto; 
   border: 5px solid rgb(8, 36, 8);
-  border-radius: 15px;
+  border-radius: 50px;
   color: rgb(8, 36, 8);
   text-align: auto;
   font-size: 1.2em;
+  box-shadow: 0 0 15px rgb(8, 30, 8);
 }
 
 .Calc {
-  background-color: #A5B68D;
+  background-color: rgb(150, 255, 150);
   width: 430px;
   border: 5px solid rgb(8, 36, 8);
-  border-radius: 15px;
+  border-radius: 50px;
   margin: auto;
   margin-top: 20px;
-  box-shadow: 0 0 20px rgb(8, 36, 8);
+  box-shadow: 0 0 15px rgb(8, 36, 8);
 }
 
 .Disp {
-  background-color: rgb(177, 151, 174);
+  background-color: rgb(255, 255, 255);
   height: 35px;
   margin: 35px;
   border: 5px solid rgb(8, 36, 8);
@@ -60,55 +54,14 @@ body {
 
 .ButtonKeys {
   flex: 1 20%;
-  background-color: rgb(177, 151, 174);
-  border: 2px solid rgb(58, 46, 57);
+  background-color:  #e6abab;
+  border: 2px solid rgb(255, 91, 241);
   border-radius: 10px;
   font-size: 2em;
   box-shadow: 0px 2px 1px #948bc6;
-  transition:background-color 0.3s ease;
 }
 
 .ButtonKeys:hover {
-  background-color: rgb(190, 171, 190);
-}
-
-.Buttons :nth-child(4),
-.Buttons :nth-child(8),
-.Buttons :nth-child(12),
-.Buttons :nth-child(15),
-.Buttons :nth-child(16) {
-  color: #CDC1FF;
-  background-color: #5f4b8a;
-  box-shadow: 0px 2px 1px #948bc6;
-  transition: background-color 0.3s ease;
-}
-
-.Buttons :nth-child(4):hover,
-.Buttons :nth-child(8):hover,
-.Buttons :nth-child(12):hover,
-.Buttons :nth-child(15):hover,
-.Buttons :nth-child(16):hover {
-  background-color: #3b3052;
-}
-
-.Buttons :nth-child(13) {
-  color: #CDC1FF;
-  background-color: #272145;
-  box-shadow: 0px 2px 1px #948bc6;
-  transition: background-color 0.3s ease;
-}
-
-.Buttons :nth-child(13):hover {
-  background-color: #3b3052;
-}
-
-.Buttons :last-child {
-  color: #CDC1FF;
-  background-color: #1d0932;
-  box-shadow: 0px 2px 1px #948bc6;
-  transition: background-color 0.3s ease;
-}
-
-.Buttons :last-child:hover {
-  background-color: #3b3052;
+  background-color: rgb(241, 157, 171);
+  box-shadow: 0px 2px 1px #c0c0c0;
 }
