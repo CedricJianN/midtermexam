@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from "react";
+export default App;
 
 function Key({ label, clickHandler }) {
   return (
@@ -21,7 +22,7 @@ function NameAndSection(){
   return(
     <div>
       <p>
-        Calculator of Milagros Darlene Mae Bulaon - IT3A
+        Calculator of Cedric Jian Martin - IT3A
       </p>
     </div>
   )
@@ -36,7 +37,7 @@ function App() {
 
   const nameClickHandler = (e) => {
     e.preventDefault();
-    setDisp('Milagros Darlene Mae M. Bulaon');
+    setDisp('Cedric Jian Martin');
     setNum1(null);
     setNum2(null);
     setOp(null);
@@ -131,11 +132,9 @@ function App() {
           <Key label={0} clickHandler={numClickHandler}/>
           <Key label={"="} clickHandler={equalsClickHandler}/>
           <Key label={"+"} clickHandler={opClickHandler}/>
-          <Key label={'Bulaon'} clickHandler={nameClickHandler}/>
+          <Key label={'Martin'} clickHandler={nameClickHandler}/>
         </div>
       </div>
     </div>
   );
 }
-
-export default App;
