@@ -1,6 +1,5 @@
 import './App.css';
 import { useState } from "react";
-export default App;
 
 function Key({ label, clickHandler }) {
   return (
@@ -138,3 +137,5 @@ function App() {
     </div>
   );
 }
+
+export default App;
