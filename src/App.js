@@ -1,6 +1,5 @@
 import './App.css';
 import { useState } from "react";
-export default App;
 
 function Key({ label, clickHandler }) {
   return (
@@ -18,123 +17,63 @@ function Display({ display }) {
   );
 }
 
-function NameAndSection(){
-  return(
+function NameAndSection() {
+  return (
     <div>
       <p>
-        Calculator of Cedric Jian Martin - IT3A
+        Cedric Jian N. Martin - IT3A
       </p>
     </div>
-  )
+  );
 }
 
 function App() {
+  const [disp, setDisp] = useState("10 Things That Require Zero Talent");
 
-  const [disp, setDisp] = useState(0);
-  const [num1, setNum1] = useState(null);
-  const [num2, setNum2] = useState(null);
-  const [op, setOp] = useState(null);
+  const items = [
+    "Being On Time",
+    "Making An Effort",
+    "Being High Energy",
+    "Having A Positive Attitude",
+    "Being Passionate",
+    "Using Good Body Language",
+    "Being Coachable",
+    "Doing A Little Extra",
+    "Being Prepared",
+    "Having A Strong Work Ethic",
+  ];
 
-  const nameClickHandler = (e) => {
-    e.preventDefault();
-    setDisp('Cedric Jian Martin');
-    setNum1(null);
-    setNum2(null);
-    setOp(null);
-  }
-
-  const numClickHandler = (e) => {
-    e.preventDefault();
-    const value = e.target.innerHTML;
-
-    if (num1 === null) {
-      setNum1(value);
-      setDisp(value);
-    } else if (op === null) {
-      setNum1(num1 + value);
-      setDisp(num1 + value);
+  const keyClickHandler = (index) => {
+    if (index === "RESET") {
+      setDisp("10 Things That Require Zero Talent");
+    } else if (index === "NAME") {
+      setDisp("Cedric Jian N. Martin".toUpperCase());
     } else {
-      if (num2 === null) {
-        setNum2(value);
-        setDisp(value);
-      } else {
-        setNum2(num2 + value);
-        setDisp(num2 + value);
-      }
+      setDisp(items[index]);
     }
-  }
-
-  const opClickHandler = (e) => {
-    e.preventDefault();
-    const value = e.target.innerHTML;
-    setOp(value);
-    setDisp(value);
-  }
-
-  const equalsClickHandler = () => {
-    if (num1 !== null && num2 !== null && op !== null) {
-      let result;
-      switch (op) {
-        case "+":
-          result = parseInt(num1) + parseInt(num2);
-          break;
-        case "-":
-          result = parseInt(num1) - parseInt(num2);
-          break;
-        case "*":
-          result = parseInt(num1) * parseInt(num2);
-          break;
-        case "÷":
-          result = parseInt(num1) / parseInt(num2);
-          break;
-        default:
-          result = 0;
-      }
-      setDisp(result);
-      setNum1(null);
-      setNum2(null);
-      setOp(null);
-    }
-  }
-
-  const clearClickHandler = () => {
-    setDisp(0);
-    setNum1(null);
-    setNum2(null);
-    setOp(null);
-  }
+  };
 
   return (
     <div className="App">
       <div className='NameContainer'>
-          <NameAndSection/>
-        </div>
+        <NameAndSection />
+      </div>
 
       <div className="Calc">
         <div className="Disp">
-          <Display display={disp}/>
+          <Display display={disp} />
         </div>
 
         <div className="Buttons">
-          <Key label={7} clickHandler={numClickHandler}/>
-          <Key label={8} clickHandler={numClickHandler}/>
-          <Key label={9} clickHandler={numClickHandler}/>
-          <Key label={"÷"} clickHandler={opClickHandler}/>
-          <Key label={4} clickHandler={numClickHandler}/>
-          <Key label={5} clickHandler={numClickHandler}/>
-          <Key label={6} clickHandler={numClickHandler}/>
-          <Key label={"*"} clickHandler={opClickHandler}/>
-          <Key label={1} clickHandler={numClickHandler}/>
-          <Key label={2} clickHandler={numClickHandler}/>
-          <Key label={3} clickHandler={numClickHandler}/>
-          <Key label={"-"} clickHandler={opClickHandler}/>
-          <Key label={"C"} clickHandler={clearClickHandler}/>
-          <Key label={0} clickHandler={numClickHandler}/>
-          <Key label={"="} clickHandler={equalsClickHandler}/>
-          <Key label={"+"} clickHandler={opClickHandler}/>
-          <Key label={'Martin'} clickHandler={nameClickHandler}/>
+          {items.map((item, index) => (
+            <Key key={index} label={index + 1} clickHandler={() => keyClickHandler(index)} />
+          ))}
+          <Key label={"RESET"} clickHandler={() => keyClickHandler("RESET")} />
+          <Key label={"NAME"} clickHandler={() => keyClickHandler("NAME")} />
         </div>
       </div>
     </div>
   );
 }
+
+export default App;
